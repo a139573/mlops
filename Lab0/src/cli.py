@@ -11,7 +11,7 @@ This CLI uses Click to expose functions from preprocessing.py for:
 import ast
 from typing import Optional
 import click
-from src.preprocessing import (
+from preprocessing import (
     remove_missing_values,
     fill_missing_values,
     remove_duplicates,
@@ -231,3 +231,6 @@ def unique_struct(values: str) -> None:
     values_list = [v.strip() for v in values.split(",")]
     result = remove_duplicates(values_list)
     click.echo(result)
+
+if __name__ == "__main__":
+    cli()

@@ -5,7 +5,7 @@ Unit tests for functions in preprocessing.py.
 import math
 import pytest
 
-from src.preprocessing import (
+from preprocessing import (
     is_missing,
     remove_missing_values,
     fill_missing_values,

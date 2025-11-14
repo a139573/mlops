@@ -70,7 +70,7 @@ uv run python -m src.cli [GROUP] [COMMAND] [OPTIONS]
 
 Command
 ```bash
-uv run python -m src.cli numeric normalize --values 1,2,3,4,5 --new-min 0 --new-max 1
+cli numeric normalize --values 1,2,3,4,5 --new-min 0 --new-max 1
 ```
 
 Output:
@@ -82,7 +82,7 @@ Output:
 
 Command
 ```bash
-uv run python -m src.cli numeric standardize --values 1,2,3
+cli numeric standardize --values 1,2,3
 ```
 
 Output:
@@ -94,19 +94,19 @@ Output:
 
 Command
 ```bash
-uv run python -m src.cli numeric clip --values 1,2,3,4,5 --min-value 2 --max-value 4
+cli numeric clip --values 1,2,3,4,5 --min-value 2 --max-value 4
 ```
 
 Output:
 ```bash
-[2, 2, 3, 4, 4]
+[2.0, 2.0, 3.0, 4.0, 4.0]
 ```
 
 #### Convert strings to integers
 
 Command
 ```bash
-uv run python -m src.cli numeric to-int --values 1,a,3
+cli numeric to-int --values 1,a,3
 ```
 
 Output:
@@ -118,11 +118,12 @@ Output:
 
 Command
 ```bash
-uv run python -m src.cli numeric log --values 1,2,3
+cli numeric log-transform --values 1,2,3
 ```
 
 Output:
 ```bash
+[0.0, 0.693, 1.099]
 ```
 
 ### Text group
@@ -131,36 +132,36 @@ Output:
 
 Command
 ```bash
-uv run python -m src.cli text tokenize --input-text "Hello, world!"
+cli text tokenize --input-text "Hello, world!"
 ```
 
 Output:
 ```bash
-
+['hello', 'world']
 ```
 
 #### Clean text
 
 Command
 ```bash
-uv run python -m src.cli text clean-text --input-text "Hello, world!"
+cli text clean-text --input-text "Hello, world!"
 ```
 
 Output:
 ```bash
-
+hello world
 ```
 
 #### Remove stopwords
 
 Command
 ```bash
-uv run python -m src.cli text remove-stopwords-cmd --input-text "Hello, world!" --stopwords <list_stopwords>
+cli text remove-stopwords --input-text "this is a test" --stopwords "is,a"
 ```
 
 Output:
 ```bash
-
+['this', 'test']
 ```
 
 ### Struct group
@@ -169,36 +170,36 @@ Output:
 
 Command
 ```bash
-uv run python -m src.cli struct shuffle --values 1,2,3 --seed 42
+cli struct shuffle --values 1,2,3 --seed 42
 ```
 
 Output:
 ```bash
-
+['2', '1', '3']
 ```
 
 #### Flatten lists
 
 Command
 ```bash
-uv run python -m src.cli struct flatten --lists [[1,2],[3,4]]
+cli struct flatten --lists [[1,2],[3,4]]
 ```
 
 Output:
 ```bash
-
+[1, 2, 3, 4]
 ```
 
 #### Remove duplicates
 
 Command
 ```bash
-uv run python -m src.cli struct unique-struct --values 1,2,2,3
+cli struct unique-struct --values 1,2,2,3
 ```
 
 Output:
 ```bash
-
+['1', '3', '2']
 ```
 
 ## Running tests

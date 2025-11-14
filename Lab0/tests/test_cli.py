@@ -4,17 +4,11 @@ Integration tests for CLI commands using Click's CliRunner.
 
 import ast
 import math
-import sys
-from pathlib import Path
 
 import pytest
 from click.testing import CliRunner
 
-# Add project path for imports
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
-from src.cli import cli
-
+import cli
 
 # Fixtures
 @pytest.fixture
